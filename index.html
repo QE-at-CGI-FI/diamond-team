@@ -477,6 +477,8 @@
       position: relative;
       overflow: hidden;
       transition: background 0.2s ease, border-color 0.2s ease;
+      display: flex;
+      flex-direction: column;
     }
     .idea-card:hover {
       background: rgba(255,255,255,0.07);
@@ -531,6 +533,7 @@
       font-size: 0.87rem;
       color: #8fa8c8;
       line-height: 1.65;
+      flex: 1;
     }
 
     .idea-card p em {
@@ -543,7 +546,8 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.35rem;
-      margin-top: 1rem;
+      margin-top: auto;
+      padding-top: 1rem;
     }
     .idea-tag {
       font-family: 'Segoe UI', Arial, sans-serif;
