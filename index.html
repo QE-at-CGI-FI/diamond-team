@@ -50,7 +50,7 @@
       position: relative;
       z-index: 1;
       text-align: center;
-      padding: 3rem 1rem 1.5rem;
+      padding: 2.5rem 1rem 0.5rem;
     }
     .cgi-wordmark {
       font-family: 'Segoe UI', Arial, sans-serif;
@@ -90,8 +90,8 @@
       display: flex;
       justify-content: center;
       align-items: flex-end;
-      height: 420px;
-      margin-top: 1rem;
+      height: 300px;
+      margin-top: 0.25rem;
       perspective: 1200px;
     }
 
@@ -432,6 +432,131 @@
     }
     footer strong { color: var(--cgi-red); }
 
+    /* ─── IDEAS SECTION ─── */
+    .ideas-section {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    .ideas-divider {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 2.5rem;
+    }
+    .ideas-divider::before, .ideas-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+    }
+    .ideas-divider-label {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 0.75rem;
+      color: var(--cgi-gold);
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .ideas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .idea-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 16px;
+      padding: 1.6rem 1.5rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .idea-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    /* left accent bar */
+    .idea-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      border-radius: 16px 0 0 16px;
+    }
+    .idea-card.idea-red::before   { background: var(--cgi-red); }
+    .idea-card.idea-gold::before  { background: var(--cgi-gold); }
+    .idea-card.idea-blue::before  { background: #5bb3ff; }
+
+    .idea-number {
+      font-family: Georgia, serif;
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1;
+      opacity: 0.08;
+      position: absolute;
+      top: 0.6rem;
+      right: 1rem;
+      pointer-events: none;
+    }
+    .idea-card.idea-red  .idea-number { color: var(--cgi-red); }
+    .idea-card.idea-gold .idea-number { color: var(--cgi-gold); }
+    .idea-card.idea-blue .idea-number { color: #5bb3ff; }
+
+    .idea-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+      line-height: 1;
+    }
+
+    .idea-card h3 {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--cgi-white);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+      letter-spacing: 0.01em;
+    }
+
+    .idea-card p {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 0.87rem;
+      color: #8fa8c8;
+      line-height: 1.65;
+    }
+
+    .idea-card p em {
+      font-style: normal;
+      color: var(--cgi-white);
+      font-weight: 600;
+    }
+
+    .idea-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-top: 1rem;
+    }
+    .idea-tag {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 1rem;
+      letter-spacing: 0.04em;
+    }
+    .itag-red  { background: rgba(227,24,55,0.15);  color: #ff8096; border: 1px solid rgba(227,24,55,0.3); }
+    .itag-gold { background: rgba(245,166,35,0.15); color: #ffc659; border: 1px solid rgba(245,166,35,0.3); }
+    .itag-blue { background: rgba(91,179,255,0.12); color: #9dd3ff; border: 1px solid rgba(91,179,255,0.25); }
+
     @keyframes dealIn {
       0%   { opacity: 0; transform: rotate(var(--r)) translateY(160px) scale(0.8); }
       100% { opacity: 1; transform: rotate(var(--r)) translateY(var(--ty)); }
@@ -768,6 +893,67 @@
     </div>
   </div>
 
+</div>
+
+<!-- ═══════════════════ IDEAS ═══════════════════ -->
+<div class="ideas-section">
+  <div class="ideas-divider">
+    <span class="ideas-divider-label">♦ &nbsp; ideas that built this team &nbsp; ♦</span>
+  </div>
+
+  <div class="ideas-grid">
+
+    <div class="idea-card idea-red">
+      <div class="idea-number">1</div>
+      <div class="idea-icon">📚</div>
+      <h3>Automation is the documentation that outlasts people</h3>
+      <p>We explore to find results that matter — for <em>UX</em>, <em>CX</em>, <em>DX</em>,
+         and <em>AX</em> (agent experience). Every exploration session leaves behind test automation:
+         living documentation that stays when people move on, that machines can re-run, and that
+         future teammates can read as a record of what the system promises to do.</p>
+      <div class="idea-tags">
+        <span class="idea-tag itag-red">Exploratory Testing</span>
+        <span class="idea-tag itag-red">Test Automation</span>
+        <span class="idea-tag itag-gold">UX · CX · DX · AX</span>
+        <span class="idea-tag itag-blue">Living Documentation</span>
+      </div>
+    </div>
+
+    <div class="idea-card idea-gold">
+      <div class="idea-number">2</div>
+      <div class="idea-icon">📐</div>
+      <h3>The bar has been too low — we raise it</h3>
+      <p>We specialise in identifying <em>gaps in quality information that matter</em>.
+         Not coverage theatre, not checkbox compliance — but the missing signal that changes
+         a decision. We raise the bar through collaboration that adds up to a
+         <em>seamless experience of quality</em>: one where every handoff is intentional
+         and every blind spot has an owner.</p>
+      <div class="idea-tags">
+        <span class="idea-tag itag-gold">Quality Information</span>
+        <span class="idea-tag itag-gold">Gap Analysis</span>
+        <span class="idea-tag itag-blue">Seamless Handoffs</span>
+        <span class="idea-tag itag-red">Raising the Bar</span>
+      </div>
+    </div>
+
+    <div class="idea-card idea-blue">
+      <div class="idea-number">3</div>
+      <div class="idea-icon">🤝</div>
+      <h3>Collaboration with stakeholders, people, and agents</h3>
+      <p>Quality is not a solo act. We collaborate across the full spectrum —
+         <em>human stakeholders</em> who set priorities, <em>team members</em> who build and ship,
+         and <em>AI agents</em> who increasingly act alongside us. The team is fluent in all three
+         modes: aligning on what matters, pairing on how to test it, and working with agents
+         as both tools and subjects of testing.</p>
+      <div class="idea-tags">
+        <span class="idea-tag itag-blue">Stakeholder Alignment</span>
+        <span class="idea-tag itag-blue">Human Collaboration</span>
+        <span class="idea-tag itag-gold">AI Agents</span>
+        <span class="idea-tag itag-red">Full-Spectrum Quality</span>
+      </div>
+    </div>
+
+  </div>
 </div>
 
 <!-- ═══════════════════ FOOTER ═══════════════════ -->
